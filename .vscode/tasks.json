@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build NT 4.0 - Open Watcom",
+            "windows": {
+                "command": "wcl386",
+                "options": {
+                    "shell": {
+                        "executable": "cmd.exe",
+                        "args": ["/d", "/c"]
+                    },
+                    "env": {
+                        "WATCOM": "C:\\WATCOM",
+                        "PATH": "C:\\WATCOM\\BINNT;C:\\WATCOM\\BINW;${env:PATH}",
+                        "INCLUDE": "C:\\WATCOM\\H;C:\\WATCOM\\H\\NT"
+                    }
+                },
+                "args": [
+                    "-bt=nt",
+                    "-l=nt",
+                    "-5",
+                    "-ox",
+                    "-fe=${fileDirname}\\dac.exe",
+                    "${fileDirname}\\*.c",
+                    "ws2_32.lib"
+                ]
+            },
+            "linux": {
+                "command": "/opt/watcom/binl64/wcl386",
+                "options": {
+                    "env": {
+                        "WATCOM": "/opt/watcom",
+                        "PATH": "/opt/watcom/binl64:/opt/watcom/binl:${env:PATH}",
+                        "INCLUDE": "/opt/watcom/h:/opt/watcom/h/nt",
+                        "EDPATH": "/opt/watcom/eddat"
+                    }
+                },
+                "args": [
+                    "-bt=nt",
+                    "-l=nt",
+                    "-5",
+                    "-ox",
+                    "-fe=${fileDirname}/dac.exe",
+                    "${fileDirname}/*.c",
+                    "ws2_32.lib",
+                    "esone.lib"
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

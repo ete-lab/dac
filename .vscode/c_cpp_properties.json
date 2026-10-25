@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "name": "Watcom NT 4.0 (Linux Host)",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/opt/watcom/h",
+        "/opt/watcom/h/nt"
+      ],
+      "defines": [
+        "_WIN32",
+        "WIN32",
+        "_M_IX86=500",
+        "__NT__",
+        "__WATCOMC__"
+      ],
+      "compilerPath": "",
+      "cStandard": "c99",
+      "intelliSenseMode": "windows-msvc-x86"
+    }
+  ],
+  "version": 4
+}
